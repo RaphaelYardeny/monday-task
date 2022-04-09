@@ -5,7 +5,7 @@ import "./App.css"
 class LambdaDemo extends Component {
   constructor(props) {
     super(props)
-    this.state = { loading: false, msg: null }
+    this.state = { loading: false, msg: null,items: [] , DataisLoaded: false }
   }
 
   handleClick = api => e => {
@@ -16,7 +16,17 @@ class LambdaDemo extends Component {
       .then(response => response.json())
       .then(json => this.setState({ loading: false, msg: json.msg }))
   }
-
+componentDidMount() {
+        fetch(
+"https://jsonplaceholder.typicode.com/users")
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({
+                    items: json,
+                    DataisLoaded: true
+                });
+            })
+    }
   render() {
     const { loading, msg } = this.state
 
