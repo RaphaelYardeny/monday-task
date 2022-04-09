@@ -5,7 +5,7 @@ import "./App.css"
 class LambdaDemo extends Component {
   constructor(props) {
     super(props)
-    this.state = { loading: false, msg: null,items: [] , DataisLoaded: false }
+    this.state = { loading: false, msg: null }
   }
 
   handleClick = api => e => {
